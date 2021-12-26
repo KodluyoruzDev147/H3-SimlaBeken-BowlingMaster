@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Çarpýþma algýlandý.");
+        Debug.Log("Ã‡arpÄ±ÅŸma algÄ±landÄ±.");
 
         playerControl = player.GetComponent<PlayerControl>();
         playerControl.enabled = false;

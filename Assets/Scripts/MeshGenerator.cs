@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeshGenerator : MonoBehaviour
 {
-
+    [SerializeField] private MeshCollider meshCollider;
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private int xWidth, zWidth ;
     [SerializeField] private float xSpacing, zSpacing, yMaxHeight;
@@ -66,8 +66,8 @@ public class MeshGenerator : MonoBehaviour
                 var topL = botL + xWidth;
                 var topR = topL + 1;
 
-                int[] t1 = new int[] { botL, botR, topR };
-                int[] t2 = new int[] { botL, topR, topL };
+                int[] t1 = new int[] { botR, botL, topR };
+                int[] t2 = new int[] { botL, topL, topR };
 
                 triangleList.AddRange(t1);
                 triangleList.AddRange(t2);
@@ -80,6 +80,8 @@ public class MeshGenerator : MonoBehaviour
         mesh.triangles = triangleList.ToArray();
 
         mesh.RecalculateNormals();
+
+        meshCollider.sharedMesh = mesh;
 
     }
 }
